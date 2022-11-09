@@ -6,12 +6,13 @@ import {
   Text,
   useColorModeValue,
   Flex,
+  HStack,
 } from '@chakra-ui/react';
-import siteConfig from '~/configs/site_config';
+import siteConfig from '~/configs/siteconfig';
 
 const iconProps = {
-  variant: 'ghost',
-  size: 'lg',
+  variant: `ghost`,
+  size: `lg`,
   isRound: true,
 };
 
@@ -35,14 +36,36 @@ const Footer = () => {
         alignItems='center'
         w='100%'
       >
-        <Text
-          textAlign='center'
-          fontSize='sm'
-          color={useColorModeValue(`gray.500`, `gray.200`)}
-        >
-          © {new Date().getFullYear()} Rifki{` `}
-        </Text>
-
+        <HStack>
+          <Text
+            textAlign='center'
+            fontSize='sm'
+            color={useColorModeValue(`gray.500`, `gray.200`)}
+          >
+            © {new Date().getFullYear()} Rifki{` `}
+          </Text>
+          <Text
+            textAlign='center'
+            fontSize='sm'
+            color={useColorModeValue(`black.500`, `black.200`)}
+          >
+            Development using Remix made with
+            <Box
+              as='span'
+              mx='2'
+              _before={{
+                cursor: 'default',
+                content: '"❤️"',
+              }}
+              _hover={{
+                _before: {
+                  content: '"☕️"',
+                },
+              }}
+            />
+            in Indonesia
+          </Text>
+        </HStack>
         <Box textAlign='center'>
           {siteConfig.author.accounts.map((sc, index) => {
             return (

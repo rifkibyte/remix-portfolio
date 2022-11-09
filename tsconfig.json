@@ -3,7 +3,7 @@
     "remix.env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "app/configs/siteConfigs.js"
+    "app/configs/siteconfigs.js"
   ],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2019"],
