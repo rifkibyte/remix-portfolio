@@ -24,6 +24,7 @@ import { Link as RemixLink, useLocation } from '@remix-run/react';
 import { AccentPicker } from '../ui/accent';
 import { ColorModeSwitcher } from '../ui/colormodeswitcher';
 import { useLinkColor } from '../ui/theme';
+import { avatar } from '~/data/data';
 
 const webLinks = [
   { name: `About`, path: `/about` },
@@ -147,15 +148,8 @@ export default function Navigation() {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={`center`}>
-            <Box>
-              <RemixLink to='/'>
-                <Avatar
-                  as={Link}
-                  size={`sm`}
-                  alt='avatar'
-                  src={`https://avatars.githubusercontent.com/u/57374907?s=400&u=96a4efee8c015ac90c5974b65f103e32bb771b79&v=4`}
-                />
-              </RemixLink>
+            <Box as='h3' fontSize='2xl' fontWeight='400' textAlign='left'>
+              <RemixLink to='/'>Home</RemixLink>
             </Box>
             <HStack
               as={`nav`}
