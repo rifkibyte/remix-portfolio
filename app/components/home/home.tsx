@@ -118,7 +118,7 @@ const Home: React.FC<HomeProps> = ({ projects }) => {
             </Text>
             <UnorderedList textAlign='left' paddingLeft={5} m={0}>
               <ListItem>
-                <Link as={RemixLink} to={`/tech-stack`} color={linkColor}>
+                <Link as={RemixLink} to={`/techstack`} color={linkColor}>
                   Tech Stack
                 </Link>
               </ListItem>

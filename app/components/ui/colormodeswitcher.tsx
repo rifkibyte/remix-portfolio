@@ -25,7 +25,7 @@ export const ColorModeSwitcher: React.FC<ColorModeSwitcherProps> = () => {
         cursor='pointer'
         fontSize={[`2xl`, `3xl`, `3xl`]}
       >
-        {mode === `dark` ? `🌤` : `🌙`}
+        {mode === `dark` ? `☀️` : `🌙`}
       </MotionBox>
     </AnimatePresence>
   );

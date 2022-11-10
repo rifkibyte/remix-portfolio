@@ -1,4 +1,6 @@
-/** @type {import('@remix-run/dev').AppConfig} */
+/**
+ * @type {import('@remix-run/dev').AppConfig}
+ */
 module.exports = {
   serverBuildTarget: 'vercel',
   // When running locally in development mode, we use the built in remix
@@ -10,4 +12,15 @@ module.exports = {
   // assetsBuildDirectory: "public/build",
   // serverBuildPath: "api/index.js",
   // publicPath: "/build/",
+  mdx: async () => {
+    const [remarkToc, rehypeHighlight] = await Promise.all([
+      import('remark-toc').then((mod) => mod.default),
+      import('rehype-highlight').then((mod) => mod.default),
+    ]);
+
+    return {
+      remarkPlugins: [remarkToc],
+      rehypePlugins: [rehypeHighlight],
+    };
+  },
 };

@@ -24,7 +24,6 @@ import { Link as RemixLink, useLocation } from '@remix-run/react';
 import { AccentPicker } from '../ui/accent';
 import { ColorModeSwitcher } from '../ui/colormodeswitcher';
 import { useLinkColor } from '../ui/theme';
-import { avatar } from '~/data/data';
 
 const webLinks = [
   { name: `About`, path: `/about` },
@@ -34,13 +33,13 @@ const webLinks = [
 const mobileLinks = [
   { name: `About`, path: `/about` },
   { name: `Blog`, path: `/blog` },
-  { name: `Tech Stack`, path: `/tech-stack` },
-  { name: `Achievements`, path: `/achievements` },
+  { name: `Tech Stack`, path: `/techstack` },
+  // { name: `Achievements`, path: `/achievements` },
 ];
 
 const dropdownLinks = [
-  { name: `Tech Stack`, path: `/tech-stack` },
-  { name: `Achievements`, path: `/achievements` },
+  { name: `Tech Stack`, path: `/techstack` },
+  // { name: `Achievements`, path: `/achievements` },
 ];
 
 interface NavLinkProps {
@@ -88,7 +87,7 @@ interface MenuLinkProps {
 
 const MenuLink = (props: MenuLinkProps) => {
   const iconsObj: any = {
-    '/tech-stack': (
+    '/techstack': (
       <Icon as={AiTwotoneThunderbolt} size={18} color={props.color} />
     ),
     '/open-source': <Icon as={BsBook} size={18} color={props.color} />,

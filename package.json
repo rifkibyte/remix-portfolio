@@ -26,11 +26,14 @@
     "@remix-run/react": "^1.7.4",
     "@remix-run/vercel": "^1.7.4",
     "@vercel/node": "^2.4.4",
+    "dayjs": "^1.11.6",
     "framer-motion": "^7.6.5",
     "mitt": "^3.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^4.6.0"
+    "react-icons": "^4.6.0",
+    "rehype-highlight": "^6.0.0",
+    "remark-toc": "^8.0.1"
   },
   "devDependencies": {
     "@remix-run/dev": "^1.7.4",

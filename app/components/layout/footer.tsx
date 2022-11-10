@@ -42,7 +42,7 @@ const Footer = () => {
             fontSize='sm'
             color={useColorModeValue(`gray.500`, `gray.200`)}
           >
-            © {new Date().getFullYear()} Rifki{` `}
+            © {new Date().getFullYear()} by Rifki{` `}
           </Text>
           <Text
             textAlign='center'
