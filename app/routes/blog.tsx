@@ -67,7 +67,7 @@ const Blog = () => {
           <Input
             placeholder='Search articles'
             onChange={(e) => setSearch(e.target.value)}
-            background={useColorModeValue('gray.100', '#1e2533')}
+            background={useColorModeValue('gray.100', 'gray.800')}
           />
           <InputRightElement>
             <Icon as={BiSearch} w={6} h={6} />

@@ -10,15 +10,14 @@ import {
   UnorderedList,
   useColorModeValue,
 } from '@chakra-ui/react';
-
 import { Link as RemixLink } from '@remix-run/react';
 import Header from '../layout/header';
 import { MotionBox, MotionFlex } from '../ui/motion';
 import { useLinkColor } from '../ui/theme';
 import Projects from './projects';
 import { avatar } from '~/data/data';
-
 import type { Project } from 'types';
+
 
 const ANIMATION_DURATION = 0.5;
 const ORANGE = `#ff9400`;
@@ -75,7 +74,8 @@ const Home: React.FC<HomeProps> = ({ projects }) => {
           }}
         >
           <Header underlineColor={ORANGE} emoji='👋' mt={0}>
-            Hello World!
+            {/* Hello World! */}
+            PancaronaTech
           </Header>
           <Box as='h2' fontSize='2xl' fontWeight='400' textAlign='left'>
             I’m Rifki Andriyanto — a Frontend Developer. I started as a full
@@ -109,7 +109,7 @@ const Home: React.FC<HomeProps> = ({ projects }) => {
             borderColor='#53c8c4'
             color={`whatsapp`}
             _hover={{ shadow: `lg` }}
-            backgroundColor={useColorModeValue(`gray.100`, `#1e2533`)}
+            backgroundColor={useColorModeValue(`gray.100`, `gray.800`)}
             rounded='sm'
             fontSize='md'
           >

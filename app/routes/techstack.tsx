@@ -102,7 +102,7 @@ const TechStack = () => {
                   color={useColorModeValue(`gray.500`, `gray.500`)}
                   _selected={{
                     color: useColorModeValue(`gray.100`, `gray.800`),
-                    bg: useColorModeValue(`gray.900`, `gray.100`),
+                    bg: useColorModeValue(`gray.800`, `gray.100`),
                   }}
                   mr={2}
                   mt={2}
@@ -117,7 +117,7 @@ const TechStack = () => {
                   bg={useColorModeValue(`gray.100`, `gray.800`)}
                   color={useColorModeValue(`gray.600`, `gray.500`)}
                   _selected={{
-                    color: `green.800`,
+                    color: `gray.800`,
                     bg: `green.100`,
                   }}
                   mr={2}

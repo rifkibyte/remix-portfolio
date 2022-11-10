@@ -51,7 +51,7 @@ const Card = (props: CardProps) => {
       <Box
         px={4}
         py={5}
-        borderWidth='1px'
+        // borderWidth='1px'
         _hover={{ shadow: `lg` }}
         bg={useColorModeValue(`white`, `gray.800`)}
         position='relative'
