@@ -11,16 +11,20 @@ export type { ColorKeys } from './foundations/colors';
 export const extendedTheme = extendTheme({
   fonts: {
     body: `Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"`,
+
+    // body: `"Source Sans Pro", "Segoe UI", "Roboto", Helvetica "Arial"`,
+    // heading: `"Playfair Display", "Segoe UI", "Roboto", Helvetica, "Arial" `,
+    // RemixLink:  `"Playfair Display", Helvetica`
   },
   styles: {
     global: (props: any) => ({
       body: {
         color: mode(`gray.700`, `whiteAlpha.900`)(props),
-        bg: mode(`gray.50`, `gray.900`)(props),
-        bgImage: mode(
-          'linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%)',
-          'none'
-        )(props),
+        bg: mode(`white`, `gray.900`)(props),
+        // bgImage: mode(
+        //   'linear-gradient(to top, #f3e7e9 0%, #ffff 99%, #ffff 100%)',
+        //   'none'
+        // )(props),
         bgRepeat: 'no-repeat',
         fontSize: `1.2em`,
         '.deleted': {
@@ -33,10 +37,10 @@ export const extendedTheme = extendTheme({
         },
       },
       a: {
-        color: mode(`blue.500`, `blue.200`)(props),
+        color: mode(`blue.900`, `white.200`)(props),
         transition: `color 0.15s`,
         transitionTimingFunction: `ease-out`,
-        fontWeight: `500`,
+        fontWeight: `700`,
         _hover: {
           color: mode(`blue.600`, `blue.300`)(props),
         },
@@ -113,7 +117,7 @@ export const getTagColor = (type: string) => {
     return `cyan`;
   } else if (type === `javascript`) {
     return `yellow`;
-  } else if (type === `typescript` || type === `tailwindcss`) {
+    } else if (type === `typescript` || type === `tailwindcss`) {
     return `blue`;
   } else if (type === `chakraui` || type === `css`) {
     return `teal`;
