@@ -29,7 +29,7 @@ const PostCard: React.FC<IProps> = ({ post }) => {
         _hover={{ shadow: 'md', textDecoration: 'none' }}
         borderWidth='1px'
         rounded='md'
-        bg={useColorModeValue('white', 'gray.800')}
+        bg={useColorModeValue('gray.50', 'gray.800')}
         align='left'
       >
         <Heading fontSize='lg'>

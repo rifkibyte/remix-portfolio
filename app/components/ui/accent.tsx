@@ -6,7 +6,7 @@ import { useLocalSetting } from '~/hooks/uselocalsettings';
 import { css, Global } from '@emotion/react';
 import { getTagBackgroundDark } from '~/components/ui/theme/foundations/colors';
 import { useCallback, useMemo } from 'react';
-import { IconButton, Icon } from '@chakra-ui/react';
+import { IconButton, Icon, useColorModeValue } from '@chakra-ui/react';
 
 export const AccentPickerIcon = ({ ...props }) => {
   const color = useLinkColor();
@@ -37,6 +37,10 @@ export const AccentPicker: FC<IconButtonProps> = ({ ...props }) => {
       icon={<AccentPickerIcon />}
       isRound
       onMouseDown={update}
+      _hover={{
+        textDecoration: `none`,
+        bg: useColorModeValue(`gray.100`, `gray.700`),
+      }}
       {...props}
     />
   );

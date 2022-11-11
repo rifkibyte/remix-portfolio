@@ -11,20 +11,12 @@ export type { ColorKeys } from './foundations/colors';
 export const extendedTheme = extendTheme({
   fonts: {
     body: `Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"`,
-
-    // body: `"Source Sans Pro", "Segoe UI", "Roboto", Helvetica "Arial"`,
-    // heading: `"Playfair Display", "Segoe UI", "Roboto", Helvetica, "Arial" `,
-    // RemixLink:  `"Playfair Display", Helvetica`
   },
   styles: {
     global: (props: any) => ({
       body: {
         color: mode(`gray.700`, `whiteAlpha.900`)(props),
         bg: mode(`white`, `gray.900`)(props),
-        // bgImage: mode(
-        //   'linear-gradient(to top, #f3e7e9 0%, #ffff 99%, #ffff 100%)',
-        //   'none'
-        // )(props),
         bgRepeat: 'no-repeat',
         fontSize: `1.2em`,
         '.deleted': {
@@ -117,7 +109,7 @@ export const getTagColor = (type: string) => {
     return `cyan`;
   } else if (type === `javascript`) {
     return `yellow`;
-    } else if (type === `typescript` || type === `tailwindcss`) {
+  } else if (type === `typescript` || type === `tailwindcss`) {
     return `blue`;
   } else if (type === `chakraui` || type === `css`) {
     return `teal`;

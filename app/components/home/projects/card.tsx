@@ -35,7 +35,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     <motion.div layout onClick={toggleOpen}>
       <HStack
         p={4}
-        bg={useColorModeValue(`white`, `gray.800`)}
+        bg={useColorModeValue(`gray.50`, `gray.800`)}
         rounded='xl'
         borderWidth='1px'
         w='100%'

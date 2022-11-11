@@ -1,5 +1,4 @@
 import {
-  Avatar,
   Box,
   Button,
   Flex,
@@ -18,7 +17,7 @@ import {
 } from '@chakra-ui/react';
 import { AiOutlineClose, AiTwotoneThunderbolt } from 'react-icons/ai';
 import { BiChevronDown } from 'react-icons/bi';
-import { BsBook, BsCheckCircle } from 'react-icons/bs';
+import { BsBook } from 'react-icons/bs';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { Link as RemixLink, useLocation } from '@remix-run/react';
 import { AccentPicker } from '../ui/accent';
@@ -32,6 +31,7 @@ const webLinks = [
 
 const mobileLinks = [
   { name: `About`, path: `/about` },
+  // { name: `Open Source`, path: `/open-source` },
   { name: `Blog`, path: `/blog` },
   { name: `Tech Stack`, path: `/techstack` },
   // { name: `Achievements`, path: `/achievements` },
@@ -39,6 +39,8 @@ const mobileLinks = [
 
 const dropdownLinks = [
   { name: `Tech Stack`, path: `/techstack` },
+  // { name: `Open Source`, path: `/open-source` },
+  // { name: `Developer Story`, path: `/developer-story` },
   // { name: `Achievements`, path: `/achievements` },
 ];
 
@@ -52,7 +54,7 @@ interface NavLinkProps {
 const NavLink = (props: NavLinkProps) => {
   const location = useLocation();
   const link = {
-    bg: useColorModeValue(`gray.200`, `gray.900`),
+    bg: useColorModeValue(`gray.100`, `gray.700`),
     color: useColorModeValue(`blue.500`, `blue.200`),
   };
 
@@ -67,6 +69,8 @@ const NavLink = (props: NavLinkProps) => {
         textDecoration: `none`,
         bg: link.bg,
       }}
+      fontSize='lg'
+      fontWeight='medium'
       bg={location.pathname === props.path ? link.bg : `transparent`}
       color={location.pathname === props.path ? link.color : `inherit`}
       onClick={() => props.onClose()}
@@ -86,12 +90,12 @@ interface MenuLinkProps {
 }
 
 const MenuLink = (props: MenuLinkProps) => {
-  const iconsObj: any = {
+  const iconsObj = {
     '/techstack': (
       <Icon as={AiTwotoneThunderbolt} size={18} color={props.color} />
     ),
     '/open-source': <Icon as={BsBook} size={18} color={props.color} />,
-    '/achievements': <Icon as={BsCheckCircle} size={18} color={props.color} />,
+    // '/achievements': <Icon as={BsCheckCircle} size={18} color={props.color} />,
   };
 
   return (
@@ -101,6 +105,8 @@ const MenuLink = (props: MenuLinkProps) => {
         bg={props.rPath === props.path ? props.bg : undefined}
       >
         <HStack>
+          {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+          {/* @ts-ignore:next-line */}
           {iconsObj[props.path]}
           <Text>{props.name}</Text>
         </HStack>
@@ -115,7 +121,7 @@ export default function Navigation() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const menuProps = {
-    bg: useColorModeValue(`gray.200`, `gray.900`),
+    bg: useColorModeValue(`gray.100`, `gray.700`),
     color: useColorModeValue(`blue.500`, `blue.200`),
   };
 
