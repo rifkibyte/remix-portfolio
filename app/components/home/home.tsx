@@ -8,6 +8,7 @@ import {
   UnorderedList,
   useColorModeValue,
   Image,
+  Center
 } from '@chakra-ui/react';
 import React from 'react';
 import Header from '../layout/header';
@@ -15,7 +16,7 @@ import { MotionBox, MotionFlex } from '../ui/motion';
 import { Link as RemixLink } from '@remix-run/react';
 import { useLinkColor } from '../ui/theme';
 import Projects from './projects';
-import { avatar } from '~/data/data';
+import { avatar } from '~/data/avatar';
 import type { Project } from 'types';
 
 const ANIMATION_DURATION = 0.5;
@@ -32,7 +33,7 @@ const Home: React.FC<HomeProps> = ({ projects }) => {
   return (
     <Flex direction='column' align='center'>
       <Flex direction={[`column`, `column`, `row`]}>
-        <Box>
+        <Center>
           <MotionBox
             opacity='0'
             initial={{ translateX: -150, opacity: 0 }}
@@ -62,7 +63,7 @@ const Home: React.FC<HomeProps> = ({ projects }) => {
               />
             )}
           </MotionBox>
-        </Box>
+        </Center>
 
         <Box>
           <MotionFlex

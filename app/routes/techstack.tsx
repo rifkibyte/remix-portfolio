@@ -15,9 +15,9 @@ import {
 import Section from '~/components/skills/section';
 import { AiTwotoneThunderbolt, AiOutlineCloudServer } from 'react-icons/ai';
 import { BiDesktop } from 'react-icons/bi';
-import { GiSpiderWeb } from 'react-icons/gi';
+import { GiPencilBrush } from 'react-icons/gi';
 import SkillCard from '~/components/skills/skillcard';
-import { skillsArray } from '~/data/data';
+import { skillsArray } from '~/data/techskills';
 import Header from '~/components/layout/header';
 import { MotionBox } from '~/components/ui/motion';
 import { container, PageSlideFade } from '~/components/ui/pagetransitions';
@@ -33,7 +33,7 @@ export const loader = () => {
 };
 
 export const meta: MetaFunction = () => {
-  return { title: `TechStack | Jotyy` };
+  return { title: `TechStack | Rifki` };
 };
 
 const TechStack = () => {
@@ -125,8 +125,8 @@ const TechStack = () => {
                   onClick={() => filterSkills(`design`)}
                 >
                   <HStack spacing={1}>
-                    <Icon as={GiSpiderWeb} />
-                    <Text>Web Design</Text>
+                    <Icon as={GiPencilBrush} />
+                    <Text>Design</Text>
                   </HStack>
                 </Tab>
                 <Tab

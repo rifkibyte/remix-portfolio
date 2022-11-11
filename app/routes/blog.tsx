@@ -23,7 +23,8 @@ import {
   PageSlideFade,
   StaggerChildren,
 } from '~/components/ui/pagetransitions';
-import * as helloMdx from '~/components/blog/posts/helloworld.mdx';
+import * as helloMdx from './posts/helloworld.mdx';
+// import * as gittutorial from './posts/gittutorial.mdx';
 import { useLoaderData } from '@remix-run/react';
 
 const TURQUOSISE = '#06b6d4';

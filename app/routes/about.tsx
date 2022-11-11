@@ -4,126 +4,35 @@ import {
   VStack,
   Heading,
   Flex,
-  Text,
-  Image,
   useColorMode,
-  useColorModeValue,
 } from '@chakra-ui/react';
 import { FaGraduationCap } from 'react-icons/fa';
 import { BsFillBriefcaseFill } from 'react-icons/bs';
 import {
   PageSlideFade,
   StaggerChildren,
-  CardTransition,
 } from '~/components/ui/pagetransitions';
 import { MotionBox } from '~/components/ui/motion';
-import { companies, institutes } from '~/data/data';
+import { institutes } from '~/data/education';
+import { carrers } from '~/data/carrers';
 import Header from '~/components/layout/header';
 import PageLayout from '~/components/layout/pagelayout';
 import { useLoaderData } from '@remix-run/react';
-import { Tags } from '~/components/ui/tags';
 import type { Company, Institute } from 'types';
 import type { MetaFunction } from '@remix-run/node';
-
-interface CardProps {
-  title: string;
-  role: string;
-  skills: string[];
-  period: string;
-  logo: string;
-  colorMode: string;
-  alt?: string;
-}
+import Card from '~/components/about/card';
 
 const TURQUOISE = `#06b6d4`;
 
 export const loader = () => {
   return {
-    companies,
+    carrers,
     institutes,
   };
 };
 
-const Card = (props: CardProps) => {
-  const { title, role, skills, period, logo, colorMode, alt } = props;
-  return (
-    <CardTransition>
-      <Box
-        px={4}
-        py={5}
-        borderWidth='1px'
-        _hover={{ shadow: `lg` }}
-        bg={useColorModeValue(`gray.50`, `gray.800`)}
-        position='relative'
-        rounded='md'
-      >
-        <Flex justifyContent='space-between'>
-          <Flex>
-            <Image
-              rounded='full'
-              w={16}
-              h={16}
-              objectFit='cover'
-              fallbackSrc={`/assets/images/placeholder.png`}
-              src={logo}
-              alt={alt}
-            />
-            <Stack spacing={2} pl={3} align='left'>
-              <Heading fontSize='xl' color={`mode.${colorMode}.career.text`}>
-                {title}
-              </Heading>
-              <Heading fontSize='sm' color={`mode.${colorMode}.career.subtext`}>
-                {role}
-              </Heading>
-              <Stack
-                spacing={1}
-                mt={3}
-                isInline
-                alignItems='center'
-                display={[`none`, `none`, `flex`, `flex`]}
-              >
-                <Tags
-                  tags={skills}
-                  interactive={false}
-                  tagProps={{
-                    colorScheme: `gray`,
-                    padding: `0 3px`,
-                    size: `sm`,
-                  }}
-                />
-              </Stack>
-            </Stack>
-          </Flex>
-          <Stack display={[`none`, `none`, `flex`, `flex`]}>
-            <Text fontSize={14} color={`mode.${colorMode}.career.subtext`}>
-              {period}
-            </Text>
-          </Stack>
-        </Flex>
-        <Stack
-          spacing={1}
-          mt={3}
-          isInline
-          alignItems='center'
-          display={[`flex`, `flex`, `none`, `none`]}
-        >
-          <Tags
-            tags={skills}
-            interactive={false}
-            tagProps={{
-              colorScheme: `gray`,
-              padding: `0 3px`,
-              size: `sm`,
-            }}
-          />
-        </Stack>
-      </Box>
-    </CardTransition>
-  );
-};
-
 const About = () => {
-  const { companies, institutes } = useLoaderData();
+  const { carrers, institutes } = useLoaderData();
   const { colorMode } = useColorMode();
 
   return (
@@ -152,7 +61,7 @@ const About = () => {
             mx={[0, 0, 6]}
             mt={12}
           >
-            {companies.map((company: Company, index: number) => (
+            {carrers.map((company: Company, index: number) => (
               <MotionBox whileHover={{ y: -5 }} key={index}>
                 <Card
                   key={index}

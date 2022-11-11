@@ -1,0 +1,147 @@
+---
+published_at: '2022-06-12 11:20:12'
+title: 'Hello, World 2'
+category: 'web-dev'
+tags: ['remix', 'chakra-ui', 'webdev', 'react']
+description: 'Hello, this is my portfolio website.'
+---
+
+## Mengapa Anda harus menulis pesan komit yang lebih baik?
+Saya menantang Anda untuk membuka proyek pribadi atau repositori apa pun dalam hal ini dan menjalankan ``git log`` untuk melihat daftar pesan komit lama. Apakah anda paham dari semua komitnya "Anjir... apa maksud dari 'Fix style' 6 bulan yang lalu? Wkwk"
+
+Jika anda ngoding di lingkungan profesional di mana Anda tidak tahu apa yang dilakukan atau dimaksudkan untuk itu. Ya mungkin akan lebih lama untuk memahaminya, mungkin jika kodinganya clean, dan dokomuntasinya lengkap anda bisa ngoding tanpa kendala "komponen ini ga terpakai ya kayaknya, tapi jika saya hapus kok error" Nah ini gaakan terjadi jika pesan komit kita rapih dan bagus.
+
+Ketika menjadi senior engineer juga tidak hanya di tuntut untuk memberikan kode yang berkualitas, tetapi pesan komit yang mudah di pahami juga, pesan Pull Request yang jelas dan dokumentasi yang lengkap.  
+<br />
+
+### Masa Kini
+Dengan menulis komit yang baik, Anda komitmen kepada Anda di masa depan, dan orang yang membaca kodingan Anda. Dapat menghemat waktu berjam-jam dan/atau rekan kerja yang ikut berkontribusi dalam project Anda merasa terbantu jika pesan komitnya mudah di pahami. 
+
+Waktu ekstra yang diperlukan untuk menulis pesan komit yang bagus sebagai surat kepada calon diri Anda di masa depan sangat berharga. Pada proyek skala besar, dokumentasi sangat penting untuk pemeliharaan.
+<br />
+
+## Anatomi Pesan Komit
+Dasar:
+``git commit -m <message>``
+
+Rinci:
+``git commit -m <title> -m <description>``
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/3nkro7vmlngeytgoi56o.jpg)
+<br />
+
+## 6 Langkah untuk Menulis Pesan Komit yang Lebih Baik
+Mari kita rangkum pedoman yang disarankan:
+
+1. Gunakan bahasa inggris: yang lihat kode kita itu bukan hanya orang lokal, dan standar industri dalam bidang software engineer itu bahasa inggris, dalam kodingan, komit, PR, test, dan lain-lain 
+
+2. Kapitalisasi dan Tanda Baca: Kapitalisasi kata pertama dan tidak berakhir dengan tanda baca. Jika menggunakan Komit Konvensional, ingatlah untuk menggunakan semua huruf kecil.
+
+3. Gunakan gaya perintah/permintaan: Gunakan perintah/permintaan pada subjek. Contoh - ``Add fix for dark mode toggle state``.
+
+4. Tipe Commit: Tentukan tipe commit. Disarankan dan bahkan bisa lebih bermanfaat untuk memiliki serangkaian kata yang konsisten untuk menggambarkan perubahan Anda. Contoh: ``Bugfix, Update, Refactor, Bump, so on``. Lihat bagian tentang Komit Konvensional di bawah ini untuk informasi tambahan.
+
+5. Panjang: Baris pertama idealnya tidak boleh lebih dari 50 karakter, dan isi harus dibatasi hingga 72 karakter.
+
+6. Isi: Bersikaplah langsung, cobalah untuk menghilangkan kata dan frasa pengisi dalam kalimat-kalimat ini (contoh: ``though, maybe, I think, kind of``). Berpikir seperti seorang jurnalis.
+<br />
+
+### Komit dengan cara menjadi "jurnalis dan penulis"
+Jurnalis dan penulis bertanya pada diri sendiri untuk memastikan artikel mereka terperinci, lugas, dan menjawab semua pertanyaan pembaca.
+
+Saat menulis artikel mereka mencari jawaban siapa, apa, di mana, kapan, mengapa dan bagaimana. Untuk tujuan berkomitmen, yang paling penting adalah menjawab apa dan mengapa untuk pesan komit kita.
+
+Perjelas mengapa perubahan itu dilakukan, dan perhatikan apakah itu mungkin penting untuk fungsionalitas atau tidak.
+
+Lihat perbedaannya di bawah ini:
+
+1. ``git commit -m 'Add margin' ``
+2. ``git commit -m 'Add margin to nav items to prevent them from overlapping the logo'``
+Jelas mana yang akan lebih berguna bagi pembaca di masa depan.
+
+Berpura-puralah Anda sedang menulis artikel penting yang layak diberitakan. Berikan judul yang akan merangkum apa yang terjadi dan apa yang penting. Kemudian, berikan detail lebih lanjut dalam tubuh secara terorganisir.
+
+Jika Anda pengguna VSCode, unduh ekstensi Git Blame. Ini adalah contoh utama ketika pesan komit yang berguna berguna bermanfaat bagi pengembang masa depan. Plugin ini akan mencantumkan orang yang membuat perubahan, tanggal perubahan, serta pesan komit yang dikomentari sebaris.
+<br />
+
+## Komit Konvensional
+Sekarang kita telah membahas struktur komit dasar dari pesan komit yang baik, saya ingin memperkenalkan Komit Konvensional untuk membantu memberikan beberapa detail tentang membuat pesan komit yang solid.
+
+Di start-up yang grow/yang besar, rata-rata sudah menggunakan Komit Konvensional yang merupakan praktik hebat di antara tim developer. Komit Konvensional adalah konvensi pemformatan yang menyediakan seperangkat aturan untuk merumuskan struktur pesan komit yang konsisten seperti:
+
+```
+<type>[optional scope]: <description>
+[optional body]
+[optional footer(s)]
+```
+
+
+
+Jenis komit dapat mencakup hal-hal berikut:
+
+``feat`` – fitur baru diperkenalkan dengan perubahan
+``fix`` – perbaikan bug telah terjadi
+``chore`` – perubahan yang tidak terkait dengan perbaikan atau fitur dan tidak memodifikasi SRC atau file uji (misalnya memperbarui dependensi)
+``refactor`` – kode refactored yang tidak memperbaiki bug atau menambahkan fitur
+``docs`` – pembaruan dokumentasi seperti README atau file penurunan harga lainnya
+``style`` – perubahan yang tidak memengaruhi arti kode, kemungkinan terkait dengan pemformatan kode seperti spasi putih, titik koma yang hilang, dan sebagainya.
+``tes`` – termasuk tes baru atau mengoreksi test sebelumnya
+``perf`` – Peningkatan kinerja
+``ci`` – Terkait Continues Integration
+``build`` – perubahan yang memengaruhi sistem build atau dependensi eksternal
+``revert`` – mengembalikan komit sebelumnya
+Baris subjek tipe komit harus semuanya huruf kecil dengan batas karakter untuk mendorong deskripsi ringkas.
+
+Isi komit opsional harus digunakan untuk memberikan detail lebih lanjut yang tidak sesuai dengan batasan karakter dari deskripsi baris subjek.
+
+Ini juga merupakan lokasi yang baik untuk memanfaatkan ``BREAKING CHANGE: <description>`` untuk mencatat alasan perubahan yang melanggar dalam komit.
+
+Footer juga opsional. Penggunakan footer untuk menautkan cerita JIRA yang akan ditutup dengan perubahan ini misalnya: ``Closes Company-Name-<JIRA #>``.
+<br />
+
+### Contoh Komit Konvensional Penuh
+```
+fix: fix foo to enable bar
+
+This fixes the broken behavior of the component by doing xyz. 
+
+BREAKING CHANGE
+Before this fix foo wasn't enabled at all, behavior changes from <old> to <new>
+
+Closes Company-Name-12345
+```
+
+Untuk memastikan bahwa konvensi komitmen ini tetap konsisten di seluruh pengembang, baris pesan komit dapat dikonfigurasi sebelum perubahan dapat didorong ke atas. [Commit Message Editor](https://marketplace.visualstudio.com/items?itemName=adam-bender.commit-message-editor) memudahkan Anda komit dengan konvensional.
+
+Untuk implementasi komit konvensi tetap sama formatnya, sebaiknya sertakan pedoman untuk komit dalam file kontribusi atau README dalam proyek Anda.
+
+Komit Konvensional bekerja sangat baik dengan versi semantik (pelajari lebih lanjut di [SemVer.org](SemVer.org)) di mana jenis komit dapat memperbarui versi yang sesuai untuk dirilis.
+
+### Perbandingan pesan komit
+Tinjau pesan berikut dan lihat berapa banyak panduan yang disarankan yang mereka periksa di setiap kategori.
+
+Bagus
+
+- ``feat: improve performance with lazy load implementation for images``
+- ``chore: update npm dependency to latest version``
+
+- ``Fix bug preventing users from submitting the subscribe form
+Update incorrect client phone number within footer body per client request``
+
+Buruk
+- ``fixed bug on landing page``
+- ``Changed style``
+- ``oops``
+- ``I think I fixed it this time?``
+- ``Pesan komit yang kosong``
+<br />
+
+## Kesimpulan
+Menulis pesan komit yang baik adalah keterampilan yang sangat bermanfaat untuk dikembangkan, dan ini membantu Anda berkomunikasi dan berkolaborasi dengan tim Anda. Komit berfungsi sebagai arsip perubahan. Mereka dapat menjadi manuskrip kuno untuk membantu kita menguraikan masa lalu, dan membuat keputusan yang beralasan di masa depan.
+
+Ada seperangkat standar yang disepakati yang dapat kita ikuti, tetapi selama tim Anda menyetujui konvensi yang deskriptif dengan mempertimbangkan pembaca di masa depan, pasti akan ada manfaat jangka panjang.
+
+Dalam artikel ini, kita telah mempelajari beberapa taktik untuk meningkatkan pesan komit. Menurut Anda bagaimana teknik-teknik ini dapat meningkatkan komit Anda?
+
+Saya harap Anda telah belajar sesuatu yang baru, terima kasih telah membaca!
+Salam Hello World 👋

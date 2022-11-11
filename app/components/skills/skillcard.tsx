@@ -23,7 +23,6 @@ const SkillCard = ({ name, image, link, description }: Skill) => {
             bg={useColorModeValue(`gray.50`, `gray.800`)}
             rounded='xl'
             borderWidth='1px'
-            // borderColor={useColorModeValue(`gray.100`, `gray.700`)}
             w='100%'
             textAlign='left'
             align='start'
@@ -46,7 +45,14 @@ const SkillCard = ({ name, image, link, description }: Skill) => {
                 right={0}
                 opacity={0.25}
               ></Box>
-              <Image src={image} height={26} width={26} rounded='md' alt='' />
+              <Image
+                src={image}
+                height={26}
+                width={26}
+                objectFit='contain'
+                rounded='md'
+                alt={name}
+              />
             </Box>
             <VStack
               align='start'
