@@ -17,14 +17,14 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => (
       Projects
     </Header>
     <AnimateSharedLayout>
-      <SimpleGrid columns={1} spacing={4} mt={5} w='100%'>
+      <SimpleGrid columns={[1, 2]} spacing={4} mt={5} w='100%'>
         {projects.map((project, index) => (
           <MotionBox whileHover={{ y: -5 }} key={index}>
             <ProjectCard
               title={project.title}
               description={project.desc}
               blurHash={project.blurHash}
-              logo={project.logo}
+              image={project.image}
               link={project.link}
               technologies={project.technologies}
             />

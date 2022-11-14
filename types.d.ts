@@ -1,7 +1,7 @@
 type Project = {
   id: number;
   title: string;
-  logo: string;
+  image: string;
   link: string;
   desc: string;
   blurHash: string;
