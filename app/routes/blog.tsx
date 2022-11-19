@@ -111,7 +111,7 @@ const Blog = () => {
 };
 
 export const meta: MetaFunction = () => {
-  return { title: `Blog | Jotyy` };
+  return { title: `Blog | Rifki` };
 };
 
 export default Blog;

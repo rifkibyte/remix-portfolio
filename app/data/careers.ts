@@ -1,6 +1,6 @@
 import type { Company } from 'types';
 
-export const carrers: Company[] = [
+export const careers: Company[] = [
   {
     title: `Findjobs Pte Ltd`,
     alt: `Findjobs`,
@@ -25,19 +25,11 @@ export const carrers: Company[] = [
     logo: `https://www.syoobe.com/image/site-logo/1`,
   },
   {
-    title: `Infinity Software`,
-    alt: `Infinity image`,
-    role: `Frontend Developer`,
-    skills: [`react`, `react native`, `android`, `ios`],
-    period: `August 2020 - December 2020`,
-    logo: `/assets/images/logos/phaedra.jpeg`,
-  },
-  {
     title: `PT Elodigy Software`,
     alt: `Elodigy image`,
     role: `Full Stack Developer`,
     skills: [`nodejs`, `react`, `react native`, `aws`, `redis`, `sql`],
-    period: `February 2019 - March 2020`,
+    period: `February 2019 - December 2020`,
     logo: `/assets/images/logos/phaedra.jpeg`,
   },
 ];

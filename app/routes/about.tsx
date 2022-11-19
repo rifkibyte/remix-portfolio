@@ -14,7 +14,7 @@ import {
 } from '~/components/ui/pagetransitions';
 import { MotionBox } from '~/components/ui/motion';
 import { institutes } from '~/data/education';
-import { carrers } from '~/data/carrers';
+import { careers } from '~/data/careers';
 import Header from '~/components/layout/header';
 import PageLayout from '~/components/layout/pagelayout';
 import { useLoaderData } from '@remix-run/react';
@@ -26,13 +26,13 @@ const TURQUOISE = `#06b6d4`;
 
 export const loader = () => {
   return {
-    carrers,
+    careers,
     institutes,
   };
 };
 
 const About = () => {
-  const { carrers, institutes } = useLoaderData();
+  const { careers, institutes } = useLoaderData();
   const { colorMode } = useColorMode();
 
   return (
@@ -61,7 +61,7 @@ const About = () => {
             mx={[0, 0, 6]}
             mt={12}
           >
-            {carrers.map((company: Company, index: number) => (
+            {careers.map((company: Company, index: number) => (
               <MotionBox whileHover={{ y: -5 }} key={index}>
                 <Card
                   key={index}
@@ -113,7 +113,7 @@ const About = () => {
 };
 
 export const meta: MetaFunction = () => {
-  return { title: `About | Jotyy` };
+  return { title: `About | RIfki` };
 };
 
 export default About;

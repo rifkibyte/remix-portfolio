@@ -8,7 +8,7 @@ export const loader = () => {
 
 export default function Index() {
   return (
-    <PageLayout title='Jotyy - Full Stack Developer'>
+    <PageLayout title='Rifki'>
       <Home projects={projects} />
     </PageLayout>
   );

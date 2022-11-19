@@ -104,7 +104,7 @@ const Achievements = () => {
               Published or contributed to{` `}
               <ExternalLink
                 color={linkColor}
-                url='https://github.com/jotyy?tab=repositories'
+                url='https://github.com/rifkiandriyanto'
                 text={`3 open-source repositories`}
                 target='_blank'
               />
@@ -113,7 +113,7 @@ const Achievements = () => {
               Built my portfolio website with React and ChakraUI,{` `}
               <ExternalLink
                 color={linkColor}
-                url='https://github.com/jotyy/my-portfolio'
+                url='https://github.com/rifkiandriyanto'
                 text={`source on Github`}
                 target='_blank'
               />
