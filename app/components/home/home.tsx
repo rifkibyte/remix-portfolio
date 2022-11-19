@@ -147,7 +147,7 @@ const Home: React.FC<HomeProps> = ({ projects }) => {
                 </NextLink>
               </ListItem> */}
               <ListItem>
-                <Link as={RemixLink} to={`/tech-stack`} color={linkColor}>
+                <Link as={RemixLink} to={`/techstack`} color={linkColor}>
                   Tech Stack
                 </Link>
               </ListItem>
