@@ -2,6 +2,16 @@ import type { Project } from "types";
 
 export const projects: Project[] = [
   {
+    id: 5,
+    title: `React Hckrnws`,
+    image: `https://raw.githubusercontent.com/rifkiandriyanto/react-hckrnws/main/shot/react-hn.png`,
+    blurHash: `L4ADc400P*Zi4Tu1y;Qo00pH#YXl`,
+    link: 
+    `https://github.com/rifkiandriyanto/react-hckrnws`,
+    desc: `React Hckrnws is a Hacker News clone built with React typescript and SCSS.`,
+    technologies: [`react`, `hackernews`, `typescript`, `scss`],
+  },
+  {
     id: 1,
     title: `React GraphQL Hasura Todo`,
     image: `https://raw.githubusercontent.com/rifkiandriyanto/react-hasura-todo/main/shot/graphql-todo.png`,
