@@ -1,4 +1,5 @@
 import { CardTransition } from '~/components/ui/pagetransitions';
+import { useLinkColor } from '~/components/ui/theme';
 import {
   Box,
   Stack,
@@ -9,6 +10,7 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import { Tags } from '~/components/ui/tags';
+
 interface CardProps {
   title: string;
   role: string;
@@ -21,6 +23,8 @@ interface CardProps {
 
 const EducationCard = (props: CardProps) => {
   const { title, role, skills, period, logo, colorMode, alt } = props;
+  const linkColor = useLinkColor();
+
   return (
     <CardTransition>
       <Box
@@ -44,10 +48,10 @@ const EducationCard = (props: CardProps) => {
               alt={alt}
             />
             <Stack spacing={2} pl={3} align='left'>
-              <Heading fontSize='xl' color={`mode.${colorMode}.career.text`}>
+              <Heading fontSize='xl' color={linkColor}>
                 {title}
               </Heading>
-              <Heading fontSize='sm' color={`mode.${colorMode}.career.subtext`}>
+              <Heading fontSize='sm' color={linkColor}>
                 {role}
               </Heading>
               <Stack
@@ -61,11 +65,12 @@ const EducationCard = (props: CardProps) => {
                   tags={skills}
                   interactive={false}
                   tagProps={{
-                    colorScheme: `gray`,
                     padding: `0 3px`,
                     size: `sm`,
                   }}
                 />
+
+
               </Stack>
             </Stack>
           </Flex>
