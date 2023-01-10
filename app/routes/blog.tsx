@@ -7,14 +7,12 @@ import {
   Stack,
   useColorModeValue,
 } from '@chakra-ui/react';
-import type { MetaFunction } from '@remix-run/node';
 import dayjs from 'dayjs';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 import { BiSearch } from 'react-icons/bi';
 import { json } from '@remix-run/node';
-import type { Post } from 'types';
 import PostCard from '~/components/blog/card';
 import Header from '~/components/layout/header';
 import PageLayout from '~/components/layout/pagelayout';
@@ -23,9 +21,15 @@ import {
   PageSlideFade,
   StaggerChildren,
 } from '~/components/ui/pagetransitions';
-import * as helloMdx from './posts/helloworld.mdx';
-// import * as gittutorial from './posts/gittutorial.mdx';
 import { useLoaderData } from '@remix-run/react';
+import type { MetaFunction } from '@remix-run/node';
+import type { Post } from 'types';
+import * as gittutorial from './posts/gittutorial.mdx';
+import * as gitsshtutorial from './posts/gitsshtutorial.mdx';
+import * as typevsinterface from './posts/typevsinterface.mdx';
+import * as helloMdx from './posts/helloworld.mdx';
+import * as gittutorialen from './posts/gittutorialen.mdx';
+import * as gitsshtutorialen from './posts/gitsshtutorialen.mdx';
 
 const TURQUOSISE = '#06b6d4';
 
@@ -44,7 +48,14 @@ type LoaderData = {
 
 export const loader = () => {
   return json<LoaderData>({
-    posts: [postFromModule(helloMdx)],
+    posts: [
+      postFromModule(typevsinterface),
+      postFromModule(gittutorialen),
+      postFromModule(gittutorial),
+      postFromModule(gitsshtutorialen),
+      postFromModule(gitsshtutorial),
+      postFromModule(helloMdx),
+    ],
   });
 };
 

@@ -1,0 +1,203 @@
+---
+published_at: '2022-12-22 11:20:12'
+title: 'Using Multiple SSH Git In Terminal'
+category: 'web-dev'
+tags: ['git', 'github', 'gitlab', 'community']
+description: 'Using Multiple SSH Git In Terminal'
+---
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/3zgm177w44sewse9wayl.jpg)
+
+[Indonesian version](https://dev.to/rifkiandriyanto/menggunakan-banyak-ssh-git-dalam-satu-terminal-1ace)
+
+For most Developers, there may be a need to run multiple GitHub, GitLab, Bitbucket accounts on one computer. For example, you could run your work GitHub account and another account for your personal projects on the same computer.
+
+In this article, you will learn how to use multiple SSH keys for different GitHub accounts
+
+
+## What is SSH key
+
+In order to understand what this article is about, it is very important to have a good understanding of how Git works.
+
+What is an SSH key?
+SSH (Secure Shell) is a cryptographic network protocol that allows one computer to connect to a server via the internet securely. SSH is best used to access remote servers.
+
+SSH is designed for encryption, verification, and secure communication between computers. It provides a secure way to execute commands and configure services remotely.
+
+"From the explanation above, do you understand what SSH is?" "Lessgooo"
+
+
+## Manage SSH
+
+If you are new to Git, I suggest deleting all the files in the directory
+
+
+  ~/.ssh and start over.
+Okay all the files have been deleted, now we will create a new SSH key.
+
+
+### Create a new SSH key
+
+navigate to the ssh directory, run the following command.
+cd .ssh/
+
+```sh
+cd .ssh/
+```
+
+Generate SSH keys for each GitHub account:
+
+```sh
+ssh-keygen -t rsa -C "your_name@email.com"
+ssh-keygen -t rsa -C "your_name@work_email.com"
+```
+
+The key generator will ask you for a file name.
+
+Enter a unique name like this for example:
+
+```sh
+id_rsa_personal
+id_rsa_work
+```
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ncqa6xzfk7gf0q84el79.png)
+
+
+### Check the SSH key on your machine account
+
+Generate SSH keys for your personal account and SSH for your work account
+
+After generating the keys, use the following command to check if all keys have been generated:
+
+```sh
+ls ~/.ssh
+```
+
+List of the following files:
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/bx7xvh84ly0ysarnzn7f.png)
+
+
+## Add SSH key to Github account
+
+Now that we have the SSH key, let's link it with a Github account.
+
+To get the SSH key, run this command:
+
+```sh
+cat id_rsa_personal.pub
+```
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/hvio9b4ln0a9ddjqplc6.png)
+
+Copy the SSH key then login to your GitHub account.
+
+Follow the steps below to add an SSH key to your GitHub account:
+
+1. On your GitHub, navigate to Settings.
+2. Select SSH and GPG Keys.
+3. Hit the New SSH Key, give it a significant Title and paste the Key.
+4. Finally, click the Add SSH key button.
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/6mdyp2qdnsjw6esl0tc1.png)
+
+
+## Create a config file to set SSH keys
+
+Next, let's combine everything in a configuration file. There are two GitHub accounts - personal and work accounts. So, we'll create two rules to associate SSH keys with the appropriate GitHub accounts.
+
+Go back into the ssh directory, run the following command:
+
+```sh
+cd ~/.ssh
+touchconfig
+```
+
+before creating the config file, make sure the config file is not in the ssh directory.
+
+if using CMD, can:
+
+```sh
+type null >> "config"
+```
+
+or
+
+open in the folder then create a new file with the name config
+
+If so, you can edit it, or you can make it using your IDE or text editor, you can use nano or code by:
+
+```sh
+nano config
+```
+
+or
+
+```sh
+code config
+```
+
+Update the configuration file by adding the following rules:
+
+```sh
+# Personal account - default configuration
+
+Host github.com
+HostName github.com
+git users
+IdentityFile ~/.ssh/id_rsa_personal
+
+# Work account
+
+Host github.com-work
+HostName github.com
+git users
+IdentityFile ~/.ssh/id_rsa_work
+
+# Personal account - Gitlab host - bonus
+
+Host gitlab.com
+HostName gitlab.com
+git users
+IdentityFile ~/.ssh/id_rsa_user_gitlab
+```
+
+Save the file by pressing CTRL + X then pressing Y then pressing ENTER in nano, if using code just press CTRL + S then press ENTER
+
+Check the config file by:
+cat config in terminal or CMD
+
+In the code above, we have two different values. One is working repository and other is for user repository. Values allow you to add and update SSH configurations from the GitHub repository.
+
+
+## Test SSH key
+
+Next, we have to test by cloning the private repository from private GitHub and work GitHub
+
+
+### Clone the private repository
+
+To clone your personal project we can use this command:
+
+```sh
+git clone git@github.com:username/private-project-repo.git
+```
+
+### Clone office repository
+
+When cloning your working repository, we will use this command:
+
+```sh
+git clone git@github.myorganization.com-work:/company-project-repo.git
+```
+
+The difference between git cloning personal remote repository and work remote repository is that we use the host that we have created in the config file. For personal remote repositories we use host github.com, while for remote work repositories we use host github.com-work
+
+
+## Conclusion
+
+In conclusion, the point is to create your SSH, then create a config file in the .ssh folder, and finally, use the hostname we created in the config file for the remote repository.
+[Github Repository](https://github.com/rifkiandriyanto/multiple-ssh-config)
+
+Greetings Hello World 👋

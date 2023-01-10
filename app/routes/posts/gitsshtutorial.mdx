@@ -1,0 +1,193 @@
+---
+published_at: '2022-12-22 11:20:12'
+title: 'Menggunakan Banyak SSH Git Dalam Terminal'
+category: 'web-dev'
+tags: ['git', 'github', 'gitlab', 'community']
+description: 'Menggunakan Banyak SSH Git Dalam Terminal'
+---
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/3zgm177w44sewse9wayl.jpg)
+
+Bagi sebagian besar Developer, mungkin ada kebutuhan untuk menjalankan beberapa akun GitHub, GitLab, Bitbucket di satu komputer. Misalnya, Anda dapat menjalankan akun GitHub kantor anda bekerja dan akun lain untuk proyek pribadi Anda di komputer yang sama.
+
+Pada artikel ini, Anda akan mempelajari cara menggunakan beberapa kunci SSH untuk berbagai akun GitHub
+
+
+## Apa itu kunci SSH
+
+Untuk memahami apa yang dimaksud dengan artikel ini, sangat penting untuk memiliki pemahaman yang baik tentang cara kerja Git.
+
+Apa itu kunci SSH?
+SSH (Secure Shell) adalah protokol jaringan kriptografi yang memungkinkan satu komputer terhubung dengan server melalui internet secara aman. SSH paling baik digunakan untuk mengakses server jarak jauh.
+
+SSH dirancang untuk enkripsi, verifikasi, dan komunikasi yang aman antar komputer. Ini memberikan cara yang aman untuk menjalankan perintah dan mengonfigurasi layanan dari jarak jauh.
+
+"Dari penjelasan diatas sudah paham kan apa itu SSH?" "Gass bang langsung praktek aja" "Shaap"
+
+## Mengelola SSH
+
+Jika anda masih pemula dalam git, saya sarankan hapus semua file di dalah directori
+
+
+ ~/.ssh dan mulai dari awal.
+Oke semua file nya sudah terhapus, sekarang kita akan membuat kunci SSH baru.
+
+### Buat kunci SSH baru
+
+navigasikan ke direktori ssh, jalankan perintah berikut.
+cd .ssh/
+
+```sh
+cd .ssh/
+```
+
+Hasilkan kunci SSH untuk setiap akun GitHub:
+
+```sh
+ssh-keygen -t rsa -C "nama_anda@email.com"
+ssh-keygen -t rsa -C "nama_anda@work_email.com"
+```
+
+Generator kunci akan meminta Anda untuk nama file.
+
+Masukkan nama unik seperti ini sebagai contoh:
+
+```sh
+id_rsa_personal
+id_rsa_work
+```
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ncqa6xzfk7gf0q84el79.png)
+
+### Cek kunci SSH pada akun mesin anda
+
+Menghasilkan kunci SSH untuk akun pribadi anda dan SSH untuk akun kantor anda
+
+Setelah membuat kunci, gunakan perintah berikut untuk memeriksa apakah semua kunci telah dibuat:
+
+```sh
+ls ~/.ssh
+```
+
+Daftar file berikut:
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/bx7xvh84ly0ysarnzn7f.png)
+
+## Tambahkan SSH key ke akun Github
+
+Sekarang kita memiliki kunci SSH, mari kita tautkan dengan akun Github.
+
+Untuk mendapatkan kunci SSH, jalankan perintah ini:
+
+```sh
+cat id_rsa_personal.pub
+```
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/hvio9b4ln0a9ddjqplc6.png)
+
+Salin kunci SSH lalu masuk ke akun GitHub Anda.
+
+Ikuti langkah-langkah di bawah ini untuk menambahkan kunci SSH ke akun GitHub Anda:
+
+1. Di GitHub Anda, navigasikan ke Settings.
+2. Pilih SSH dan GPG Keys.
+3. Tekan tombol New SSH Key, berikan Judul yang signifikan dan rekatkan Kuncinya.
+4. Terakhir, klik tombol Tambahkan kunci SSH.
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/6mdyp2qdnsjw6esl0tc1.png)
+
+## Membuat file config untuk mengatur kunci SSH
+
+Selanjutnya, mari kita gabungkan semuanya dalam file konfigurasi. Ada dua akun GitHub - akun pribadi dan kantor. Jadi, kita akan membuat dua aturan untuk menghubungkan kunci SSH dengan akun GitHub yang sesuai.
+
+Masuk kembali ke directory ssh, jalankan perintah berikut:
+
+```sh
+cd ~/.ssh
+touch config
+```
+
+sebelum membuat file config, pastikan file config tidak ada di dalam directory ssh.
+
+jika menggunakan CMD, bisa:
+
+```sh
+type nul >> "config"
+```
+
+atau
+
+open di foldernya lalu buat file baru dengan nama config
+
+Jika sudah, Anda dapat mengeditnya, atau dapat dibuat menggunakan IDE atau text editor kalian, bisa gunakan nano atau code dengan cara:
+
+```sh
+nano config
+```
+
+atau
+
+```sh
+code config
+```
+
+Perbarui file konfigurasi dengan menambahkan aturan berikut:
+
+```sh
+# Akun pribadi - konfigurasi default
+
+Host github.com
+HostName github.com
+User git
+IdentityFile ~/.ssh/id_rsa_personal
+
+# Akun kerja
+
+Host github.com-work
+HostName github.com
+User git
+IdentityFile ~/.ssh/id_rsa_work
+
+# Akun pribadi - host Gitlab - bonus
+
+Host gitlab.com
+HostName gitlab.com
+User git
+IdentityFile ~/.ssh/id_rsa_user_gitlab
+```
+
+Save filenya dengan cara tekan CTRL + X lalu tekan Y lalu tekan ENTER di nano, jika menggunakan code tinggal tekan CTRL + S lalu tekan ENTER
+
+cek file confignya dengan cara:
+cat config di terminal atau CMD
+
+Dalam kode di atas, kita memiliki dua nilai yang berbeda. Salah satunya adalah repositori kerja dan lainnya untuk repositori pengguna. Nilai memungkinkan Anda untuk menambah dan memperbarui konfigurasi SSH dari repositori GitHub.
+
+## Test kunci SSH
+
+Selanjutnya, kita harus mengetest dengan cara mengkloning repositori privite dari GitHub pribadi dan GitHub kerja
+
+### Kloning repository pribadi
+
+Untuk mengkloning proyek pribadi Anda, kami dapat menggunakan perintah ini:
+
+```sh
+git clone git@github.com:username/private-project-repo.git
+```
+
+### Kloning repository kantor
+
+Saat clonning repository kerjaan Anda, kita akan menggunakan perintah ini:
+
+```sh
+git clone git@github.myorganization.com-work:/company-project-repo.git
+```
+
+perbedaan dari git kloning remote repository pribadi dan remote repository kerja adalah kita menggunakan host yang telah kita buat di dalam config file. Untuk remote repository pribadi kita menggunakan host github.com, sedangkan untuk remote repository kerja kita menggunakan host github.com-work
+
+## Kesimpulan
+
+Sebagai kesimpulan, poinnya adalah buat SSH anda, kemudian bikin config file di dalam folder .ssh, dan terakhir, gunakan nama host yang telah kita buat di dalam config file untuk remote repositori.
+[Github Repository](https://github.com/rifkiandriyanto/multiple-ssh-config)
+
+Salam Hello World!

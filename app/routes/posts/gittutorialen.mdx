@@ -1,0 +1,145 @@
+---
+published_at: '2022-11-22 11:20:12'
+title: 'Improve Your Git Commit Message Like a Pro'
+category: 'web-dev'
+tags: ['git', 'github', 'community']
+description: 'Improve Git Commit Message Like a Pro'
+---
+
+## Why should you write better commit messages?
+I challenge you to open your personal project or any repository for that matter and run ``git log`` to see a list of old commit messages. Do you understand all the commits "WTF... what does 'Fix style' mean 6 months ago? haha"
+
+If you are coding in a professional environment where you have no idea what is being done or what it is meant to be. Yes, it might take longer to understand, maybe if the code is clean, and the documentation is complete, you can code without the problem "This component isn't being used, I think, but if I delete it, it's an error." Now, this won't happen if our commit messages are neat and good.
+
+When you become a senior engineer, you are not only required to provide quality code, but also easy-to-understand commit messages, clear Pull Request messages and complete documentation.
+<br />
+
+### Present time
+By writing good commits, you commit yourself to the future, and to the people who read your code. It can save hours of time and/or coworkers who contribute to your project find it helpful if the commit messages are easy to understand.
+
+The extra time it takes to write a nice commit message as a letter to your potential future self is well worth it. On large scale projects, documentation is essential for maintenance.
+<br />
+
+## Commit Message Anatomy
+Base:
+``git commit -m <message>``
+
+Detailed:
+``git commit -m <title> -m <description>``
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/3nkro7vmlngeytgoi56o.jpg)
+<br />
+
+## 6 Steps to Write Better Commit Messages
+Let's summarize the suggested guidelines:
+
+1. Use English: it's not just local people who see our code, and the industry standard in the field of software engineering is English, in coding, commit, PR, test, etc.
+
+2. Capitalization and Punctuation: Capitalize the first word and do not end with punctuation. If using Conventional Commit, remember to use all lowercase letters.
+
+3. Use the command/request style: Use the command/request on the subject. Example - ``Add fix for dark mode toggle state``.
+
+4. Commit Type: Specify the commit type. It is recommended and even more useful to have a consistent set of words to describe your changes. Example: ``Bugfix, Update, Refactor, Bump, so on``. See the section on Conventional Committing below for additional information.
+
+5. Length: The first line should ideally be no longer than 50 characters, and content should be limited to 72 characters.
+
+6. Content: Be direct, try to omit filler words and phrases in these sentences (example: ``though, maybe, I think, kind of``). Think like a journalist.
+<br />
+
+### Commit to being a "journalist and writer"
+Journalists and writers ask themselves to make sure their articles are detailed, concise, and answer all of their readers' questions.
+
+When writing articles they are looking for answers who, what, where, when, why and how. For commit purposes, the most important thing is to answer the what and why to our commit message.
+
+Clarify why the change was made, and note whether or not it might be critical to functionality.
+
+See the difference below:
+
+1. ``git commit -m 'Add margin' ``
+2. ``git commit -m 'Add margin to nav items to prevent them from overlapping the logo'``
+It is clear which one will be more useful to future readers.
+
+Pretend you're writing an important newsworthy article. Give it a title that will summarize what happened and what is important. Then, provide more details in the body in an organized manner.
+
+If you're a VSCode user, download the Git Blame extension. This is a prime example of when useful commit messages are useful to future developers. This plugin will list the person who made the change, the date of the change, as well as the commented commit message inline.
+<br />
+
+## Conventional Commit
+Now that we've covered the basic commit structure of a good commit message, I'd like to introduce Conventional Commits to help provide some details on creating a solid commit message.
+
+In growing start-ups, the average is already using Conventional Commit which is a great practice among the development team. Conventional Commit is a formatting convention that provides a set of rules for formulating a consistent commit message structure such as:
+
+```
+<type>[optional scope]: <description>
+[optional body]
+[optional footer(s)]
+```
+
+Commit types can include the following:
+
+``feat`` – new features introduced with changes
+``fix`` – a bug fix has occurred
+``chore`` – changes not related to fixes or features and do not modify SRC or test files (eg updating dependencies)
+``refactor`` – refactored code that doesn't fix bugs or add features
+``docs`` – documentation updates such as README or other markdown files
+``style`` – changes that do not affect the meaning of the code, possibly related to code formatting such as whitespace, missing semicolons and so on.
+``test`` – includes a new test or corrects a previous test
+``perf`` – Improved performance
+``ci`` – Related to Continues Integration
+``build`` – changes that affect the build system or external dependencies
+``revert`` – reverts the previous commit
+The subject line of the commit type must be all lowercase with a character limit to encourage concise descriptions.
+
+The optional commit body should be used to provide further details that do not fit within the character limit of the subject line description.
+
+This is also a good location to utilize ``BREAKING CHANGE: <description>`` to log the reason for the breaking change in a commit.
+
+Footers are also optional. Use the footer to link the JIRA story that will close with this change eg: ``Closes Company-Name-<JIRA #>``.
+<br />
+
+### Full Conventional Commit Example
+```
+fix: fix foo to enable bar
+
+This fixes the broken behavior of the component by doing xyz.
+
+BREAKING CHANGES
+Before this fix foo wasn't enabled at all, behavior changes from <old> to <new>
+
+Closes Company-Name-12345
+```
+
+To ensure that these commit conventions remain consistent across developers, a commit message line can be configured before changes can be pushed up. [Commit Message Editor](https://marketplace.visualstudio.com/items?itemName=adam-bender.commit-message-editor) makes it easier for you to commit conventionally.
+
+In order to implement convention commits remain the same format, it's a good idea to include guidelines for commits in the contributed files or READMEs in your project.
+
+Conventional Commit works great with semantic versioning (learn more at [SemVer.org](SemVer.org)) where the commit type can update the version accordingly for release.
+
+### Comparison of commit messages
+Review the following messages and see how many suggested guides they check out in each category.
+
+Good
+
+- ``feat: improve performance with lazy load implementation for images``
+- ``chore: update npm dependency to latest version``
+
+- ``Fix bug preventing users from submitting the subscribe form
+Update incorrect client phone number within footer body per client request``
+
+Bad
+- ``fixed bug on landing page``
+- ``Changed style``
+- ``oops``
+- ``I think I fixed it this time?``
+- ``Empty commit message``
+<br />
+
+## Conclusion
+Writing good commit messages is a very rewarding skill to develop, and it helps you communicate and collaborate with your team. The commit serves as an archive of changes. They can become ancient manuscripts to help us decipher the past, and make reasoned decisions for the future.
+
+There is an agreed upon set of standards that we can all follow, but as long as your team agrees on a convention that is descriptive with future readers in mind, there will definitely be long-term benefits.
+
+In this article, we've explored some tactics for improving commit messages. How do you think these techniques can improve your commits?
+
+I hope you've learned something new, thanks for reading!
+Greetings Hello World 👋

@@ -1,0 +1,118 @@
+---
+published_at: "2023-01-10 11:20:12"
+title: "Interface vs Type Alias ​​di TypeScript - Perbandingan singkat!"
+category: "web-dev"
+tags: ["typescript", "javascript", "webdev"]
+description: "Interface vs Type Alias ​​di TypeScript apa yang harus kita gunakan?"
+---
+
+# Interface vs Type Alias ​​di TypeScript - Perbandingan singkat
+
+Apa yang harus dipilih Type atau Interface, ya emang binggung awal-awal menggunakan TypeScript, ini berlaku untuk siapa saja yang bekerja dengan typesctript pemula atau menengah. Keduaanya Alias tersebut sama saja kegunaannya.
+
+Dalam posting ini Anda akan belajar fitur TypeScript apa yang mungkin diterapkan sebagai Type Alias ​​atau Interface
+
+## Gambaran : Interface (I) vs Type Alias ​​​​(T)
+
+![interfacevstype](https://miro.medium.com/max/1400/1*1QKY3IbtXI-9smfCxMvVlg.webp "interfacevstype")
+
+### Primitives
+
+❌: Interface
+✅: Type Alias
+
+JavaScript memiliki tiga primitif yang sangat umum digunakan: string, angka, dan boolean. Masing-masing memiliki tipe yang sesuai di TypeScript.
+
+![Primitives](https://res.cloudinary.com/practicaldev/image/fetch/s--eBH_EEq---/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/q69vvz3u4c3gwwe9mtav.png "Primitives")
+
+### Extend / Intersect
+
+✅: Interface
+✅: Type Alias
+
+Dalam Intersect dan Extend keduanya sama tapi tidak 100%, untuk interface dan Type Alias, saya menggabungkannya dalam contoh ini. Perbedaan muncul ketika kunci jenis muncul di kedua jenis yang ingin Anda perpanjang atau potong.
+
+![ExtendIntersect](https://res.cloudinary.com/practicaldev/image/fetch/s--I-tuxxF8--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/s4aaw9v00gtgky7jtk7y.png "ExtendIntersect")
+
+### Array object types
+
+❌: Interface
+✅: Type Alias
+
+Type keys di objek Anda dengan ini.
+
+Berikut adalah beberapa aplikasi yang berguna dari ini:
+
+- `[key: string]` : hanya string sebagai key yang diperbolehkan
+- `[key: number]` : hanya number sebagai kunci yang diperbolehkan
+- `` [key in keyof T as `get${Capitalize<string & key>}`] `` : hanya izinkan kunci yang dimulai dengan get..., misalnya seperti yang terlihat di objek Getter
+
+![Arrayobjecttypes](https://res.cloudinary.com/practicaldev/image/fetch/s--KKnZ6nKZ--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/7vqybmzkih1urhy46zro.png "Arrayobjecttypes")
+
+### Unions
+
+TypeScript setara dengan `OR`: Jenisnya adalah `x` atau `y` atau `z` atau sebanyak yang Anda inginkan.
+
+![Unions](https://res.cloudinary.com/practicaldev/image/fetch/s--LySykI5O--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/6l2dger256xqufv9pry7.png "Unions")
+
+### Augment existing types
+
+✅: Interface
+❌: Type Alias
+
+Anda dapat menambahkan bidang ke jenis yang sudah ada. Ini berguna saat Anda menambahkan bidang baru (mis . `jQuery` Pustaka untuk pelengkapan otomatis) ke jenis yang sudah ada (mis `window`.).
+
+![Augmentexistingtypes](https://res.cloudinary.com/practicaldev/image/fetch/s--2cj07WWt--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/krw13zxmqojvsbrznglq.png "Augmentexistingtypes")
+
+### Tuples
+
+✅: Interface
+✅: Type Alias
+
+Jika Anda pernah menggunakan hook sebagai react, maka Anda tahu kegunaan tuple.
+
+Satu pemanggilan fungsi dapat mengembalikan array nilai dan fungsi, yang didestrukturisasi dan dapat digunakan sebagai variabel bertipe lengkap: `const [name, setName] = useState('')`
+
+![Tuples](https://res.cloudinary.com/practicaldev/image/fetch/s--Q9nlxudt--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/dfndojgot452cppipeko.png "Tuples")
+
+### Functions
+
+✅: Interface
+✅: Type Alias
+
+Fungsi dapat dianotasi dengan Jenis Parameter dan Jenis Pengembalian.
+
+![Functions](https://res.cloudinary.com/practicaldev/image/fetch/s--WebAKkmQ--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/5ewt8rhsj7jkc0cfmntn.png "Functions")
+
+### Recursion
+
+✅: Interface
+✅: Type Alias
+Rekursi mudah digunakan. Pastikan Anda menambahkan opsional `?` ke properti rekursif. Kalau tidak, kompiler TS mengeluarkan kesalahan saat mencari rekursi tanpa akhir.
+
+![Recursion](https://res.cloudinary.com/practicaldev/image/fetch/s--qSqCPlUP--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/o0l61a0p49jrwbakemcf.png "Recursion")
+
+## Apa yang harus saya gunakan?
+Pendapat pribadi saya:
+Selalu lebih suka Interface daripada `type`.
+
+--------
+Kapan menggunakan `type`:
+
+Gunakan `type` saat mendefinisikan alias untuk tipe primitif (string, boolean, angka, bigint, simbol, dll)
+Gunakan `type` saat mendefinisikan tipe tuple
+Gunakan `type` saat menentukan jenis fungsi
+Gunakan `type` saat mendefinisikan serikat pekerja
+Gunakan `type` saat mencoba membebani fungsi dalam tipe objek melalui komposisi
+Gunakan `type` saat perlu memanfaatkan tipe yang dipetakan
+
+Kapan menggunakan `interface`:
+
+Gunakan `interface` untuk semua jenis objek `type` yang tidak memerlukan penggunaan
+Gunakan `interface` saat Anda ingin memanfaatkan penggabungan deklarasi.
+
+## Sumber lainnya
+
+<p><a href="ttps://dev.to/zwacky/interface-vs-type-alias-in-typescript-quick-comparison-2g37" title="title">Interface vs Type Alias in TypeScript—Quick Comparison</a></p>
+<p><a href="https://www.typescriptlang.org/play" title="title">https://www.typescriptlang.org/play</a></p>
+<p><a href="https://github.com/typescript-cheatsheets/react#types-or-interfaces" title="title">https://github.com/typescript-cheatsheets/react#types-or-interfaces</a></p>
