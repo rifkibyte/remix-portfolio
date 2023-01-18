@@ -12,6 +12,16 @@ export const projects: Project[] = [
     technologies: [`react`, `hackernews`, `typescript`, `scss`],
   },
   {
+    id: 6,
+    title: `Cakrawala Achieve`,
+    image: `https://vmulbisotlmxylygantz.supabase.co/storage/v1/object/sign/imagedata/cakrawala-achieve.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZWRhdGEvY2FrcmF3YWxhLWFjaGlldmUucG5nIiwiaWF0IjoxNjc0MDIzNjUzLCJleHAiOjE3MDU1NTk2NTN9.R_csnFs8x-lN9Y0Gk7jln-1dMjCtavZzbFRTTchJ7GA&t=2023-01-18T06%3A34%3A13.858Z`,
+    blurHash: `L4ADc400P*Zi4Tu1y;Qo00pH#YXl`,
+    link: 
+    `https://cakrawala-achieve.vercel.app/`,
+    desc: `Cakrawala Achieve is (Stackoverflow Clone) a question and answer website for professional and enthusiast programmers. Built with mongo db, nodejs, express, next typescript, and tailwindcss`,
+    technologies: [`nextjs`, `typescript`, `express`, `mongodb`],
+  },
+  {
     id: 1,
     title: `React GraphQL Hasura Todo`,
     image: `https://raw.githubusercontent.com/rifkiandriyanto/react-hasura-todo/main/shot/graphql-todo.png`,
@@ -49,4 +59,5 @@ export const projects: Project[] = [
     desc: `Lattice Wallet Mobile is a decentralize wallet application based on web3.dart and working on lattice blockchain. It supports multiple platforms Android/iOS.`,
     technologies: [`bash`, `vim`, `terminal`],
   },
+  
 ];

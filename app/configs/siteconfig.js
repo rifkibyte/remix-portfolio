@@ -26,7 +26,7 @@ const siteConfig = {
         icon: <FaLinkedin />,
       },
       {
-        url: 'andriyantorifki53@gmail.com',
+        url: 'mailto:andriyantorifki53@gmail.com',
         label: 'Mail Rifki',
         type: 'gray',
         icon: <FiMail />,

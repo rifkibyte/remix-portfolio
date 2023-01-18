@@ -12,7 +12,7 @@ import siteConfig from '~/configs/siteconfig';
 
 const iconProps = {
   variant: `ghost`,
-  size: `lg`,
+  size: `md`,
   isRound: true,
 };
 
@@ -39,14 +39,17 @@ const Footer = () => {
         <HStack>
           <Text
             textAlign='center'
-            fontSize='sm'
+            fontSize='xs'
             color={useColorModeValue(`gray.500`, `gray.200`)}
           >
-            © {new Date().getFullYear()} by Rifki{` `}
+            Rifki Andriyanto
+           {` • `}
+          {`© ${new Date().getFullYear()}`}
+           {` • `}
           </Text>
           <Text
             textAlign='center'
-            fontSize='sm'
+            fontSize='xs'
             color={useColorModeValue(`black.500`, `black.200`)}
           >
             Development using Remix made with

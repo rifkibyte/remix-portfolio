@@ -19,7 +19,7 @@ import { ClientStyleContext, ServerStyleContext } from './context';
 export const meta: MetaFunction = () => {
   return {
     charSet: 'utf-8',
-    title: `Hello World`,
+    title: `Rifki Andriyanto`,
     viewport: 'width=device-width, initial-scale=1',
   };
 };
