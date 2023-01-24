@@ -53,7 +53,7 @@ const Achievements = () => {
 
   return (
     <PageSlideFade>
-      <Box align='start' mb={6}>
+      <Box alignItems='start' mb={6}>
         <Header mt={0} mb={0}>
           Achievements
         </Header>

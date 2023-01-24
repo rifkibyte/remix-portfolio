@@ -112,6 +112,6 @@ export const skillsArray: Skill[] = [
     description: `Collaborative Design`,
     link: `https://www.adobe.com/products/xd.html`,
     type: `design`,
-    image: `https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.disko.fr%2Fwp-content%2Fuploads%2F2016%2F04%2Fadobe-xd.png&f=1&nofb=1&ipt=5fa01f73ca59b386f30c24fa514d8c65bc3848904b4b32e83cae1ef40a2af6c1&ipo=images`,
+    image: `https://upload.wikimedia.org/wikipedia/commons/c/c2/Adobe_XD_CC_icon.svg`,
   },
 ];
