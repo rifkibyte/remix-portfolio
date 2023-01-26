@@ -2,24 +2,22 @@ import type { Project } from "types";
 
 export const projects: Project[] = [
   {
+    id: 6,
+    title: `Cakrawala Achieve`,
+    image: `https://vmulbisotlmxylygantz.supabase.co/storage/v1/object/sign/imagedata/cakrawala-achieve.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZWRhdGEvY2FrcmF3YWxhLWFjaGlldmUucG5nIiwiaWF0IjoxNjc0NzA0OTMzLCJleHAiOjE3MDYyNDA5MzN9.6pY2ndBNenb4xKA02NGgainJ7PCYb1Vn11c10jYWxts&t=2023-01-26T03%3A48%3A53.898Z`,
+    blurHash: `L4ADc400P*Zi4Tu1y;Qo00pH#YXl`,
+    link: `https://cakrawala-achieve.vercel.app/`,
+    desc: `Cakrawala Achieve is (Stackoverflow Clone) a question and answer website for professional and enthusiast programmers. Built with mongo db, nodejs, express, next typescript, and tailwindcss`,
+    technologies: [`nextjs`, `typescript`, `express`, `mongodb`],
+  },
+  {
     id: 5,
     title: `React Hckrnws`,
     image: `https://raw.githubusercontent.com/rifkiandriyanto/react-hckrnws/main/shot/react-hn.png`,
     blurHash: `L4ADc400P*Zi4Tu1y;Qo00pH#YXl`,
-    link: 
-    `https://github.com/rifkiandriyanto/react-hckrnws`,
+    link: `https://github.com/rifkiandriyanto/react-hckrnws`,
     desc: `React Hckrnws is a Hacker News clone built with React typescript and SCSS.`,
     technologies: [`react`, `hackernews`, `typescript`, `scss`],
-  },
-  {
-    id: 6,
-    title: `Cakrawala Achieve`,
-    image: `https://vmulbisotlmxylygantz.supabase.co/storage/v1/object/sign/imagedata/cakrawala-achieve.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZWRhdGEvY2FrcmF3YWxhLWFjaGlldmUucG5nIiwiaWF0IjoxNjc0MDIzNjUzLCJleHAiOjE3MDU1NTk2NTN9.R_csnFs8x-lN9Y0Gk7jln-1dMjCtavZzbFRTTchJ7GA&t=2023-01-18T06%3A34%3A13.858Z`,
-    blurHash: `L4ADc400P*Zi4Tu1y;Qo00pH#YXl`,
-    link: 
-    `https://cakrawala-achieve.vercel.app/`,
-    desc: `Cakrawala Achieve is (Stackoverflow Clone) a question and answer website for professional and enthusiast programmers. Built with mongo db, nodejs, express, next typescript, and tailwindcss`,
-    technologies: [`nextjs`, `typescript`, `express`, `mongodb`],
   },
   {
     id: 1,
@@ -50,6 +48,24 @@ export const projects: Project[] = [
     technologies: [`nextjs`, `typescript`, `react-hook-form`, `react-query`],
   },
   {
+    id: 8,
+    title: `AdaPundi- Pinjaman Uang Online`,
+    image: `https://vmulbisotlmxylygantz.supabase.co/storage/v1/object/sign/imagedata/adapundi-app.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZWRhdGEvYWRhcHVuZGktYXBwLnBuZyIsImlhdCI6MTY3NDcwNTE0MywiZXhwIjoxNzA2MjQxMTQzfQ.5JP2tLaYYKn1YJGDeMA6sJ0szH2U1aYH10hAKkCUxYI&t=2023-01-26T03%3A52%3A24.027Z`,
+    blurHash: `L4ADc400P*Zi4Tu1y;Qo00pH#YXl`,
+    link: `https://play.google.com/store/apps/details?id=com.yinshan.program.banda`,
+    desc: `AdaPundi - Online installment loan credit platform for rupiah funds online in Indonesia, with a credit limit of up to 30,000,000 rupiah. Our mission is to provide cash funds or fast liquid online cash loans that are safe and convenient for users.`,
+    technologies: [`react-native`, `typescript`, `redux`, `rect-hooks`],
+  },
+  {
+    id: 7,
+    title: `Findjobs - Find Jobs Easily`,
+    image: `https://vmulbisotlmxylygantz.supabase.co/storage/v1/object/sign/imagedata/findjob-app.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZWRhdGEvZmluZGpvYi1hcHAucG5nIiwiaWF0IjoxNjc0NzA1NjM2LCJleHAiOjE3MDYyNDE2MzZ9.s9nbUPqxH6s_kLTvOOYhLsrrBmWBPpfYUTRTI7GL9XM&t=2023-01-26T04%3A00%3A36.097Z`,
+    blurHash: `L4ADc400P*Zi4Tu1y;Qo00pH#YXl`,
+    link: `https://play.google.com/store/apps/details?id=com.findjobs.findjobsapp&gl=US`,
+    desc: `Findjobs App - Job Portal app with  Tons of job opportunities with easy application`,
+    technologies: [`react-native`, `javascript`, `redux`, `react-hooks`],
+  },
+  {
     id: 4,
     title: `Neovim Settings`,
     // image: workof,
@@ -59,5 +75,4 @@ export const projects: Project[] = [
     desc: `Lattice Wallet Mobile is a decentralize wallet application based on web3.dart and working on lattice blockchain. It supports multiple platforms Android/iOS.`,
     technologies: [`bash`, `vim`, `terminal`],
   },
-  
 ];
