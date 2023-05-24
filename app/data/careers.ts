@@ -4,7 +4,7 @@ export const careers: Company[] = [
   {
     title: `Adapundi`,
     alt: `Adapundi`,
-    role: `Frontend Devloper`,
+    role: `Frontend Developer`,
     skills: [`react`, `typescript`, `umiJS`, `vue`, `nextJS`],
     period: `Dec 2022 - Present`,
     logo: `/assets/images/logos/adapundi.png`,
